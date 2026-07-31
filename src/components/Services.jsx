@@ -10,7 +10,6 @@ const tiers = [
       'Fully responsive layout',
       'Clean content structure',
       'Contact / hours section',
-      'GitHub Pages deployment',
     ],
     link: '#example-basic',
   },
