@@ -16,18 +16,22 @@ Suggested category/subcategory is a best-guess based on standard Fiverr taxonomy
 
 ## 1. AI Chatbot / FAQ Bot
 
-**Confirmed category path** (from your live gig-edit form — this is exact, not a guess): Programming & Tech → **AI Development** → **AI Integrations**.
+**Confirmed category path** (from your live gig-edit form, most recent snapshot): Programming & Tech → **Chatbot Development** → **AI Chatbot Development**.
+> Note: an earlier snapshot from your form showed **AI Development → AI Integrations** instead. Both are in Fiverr's own `suggested_categories` list for this title, so the dropdown may have changed between snapshots — confirm on the live form which one you actually want selected before publishing, since only one can be active.
 
 **Gig title (pick one, ≤80 characters):**
 - I will build a custom AI chatbot or FAQ bot for your website
 - I will create an AI FAQ chatbot for your business website
 
-**Search tags (5, ≤20 characters each — your draft currently only has 2 of 5 filled in):**
+**Search tags (5, ≤20 characters each, letters and numbers only per Fiverr's field constraint — your draft currently only has 2 of 5 filled in):**
 `ai chatbot` · `faq bot` · `chatbot setup` · `customer support ai` · `website chatbot`
 
-**Gig metadata fields (confirmed from your live form — these are the standardized attributes for this subcategory):**
+**Gig metadata fields (confirmed from your live form — 5 sections total for this subcategory: AI Engine, Programming Language, Tools & Frameworks, Bot Type, Platforms):**
 - **AI Engine** — dropdown, currently unset on your draft. Set this to whichever engine you'll actually build with (Claude/Anthropic if that's your build stack, or OpenAI/GPT if you're using that API — pick the one you'll really use, since it's buyer-facing and sets an expectation).
-- **Programming Languages Supported** — multi-select, up to 10, from a fixed list (Assembly, Apex, C, C#, C++, Dart, Go, Java, JavaScript, Kotlin, Objective-C, PHP, Python, Ruby, Swift, TypeScript, R, React, PyTorch, Tensorflow, Keras, Julia, Lisp, Other). Your draft currently has only **JavaScript** selected. Given the Node/Express stack in `AGENTS.md`, I'd add **TypeScript** and **React** (the widget frontend) at minimum — add **Python** too if you'd ever build the bot logic in Python instead.
+- **Programming Language** — multi-select, up to 10, from a fixed list (Assembly, Apex, C, C#, C++, Dart, Go, Java, JavaScript, Kotlin, Objective-C, PHP, Python, Ruby, Swift, TypeScript, R, React, PyTorch, Tensorflow, Keras, Julia, Lisp, Other). Your draft currently has only **JavaScript** selected. Given the Node/Express stack in `AGENTS.md`, I'd add **TypeScript** and **React** (the widget frontend) at minimum — add **Python** too if you'd ever build the bot logic in Python instead.
+- **Tools & Frameworks** — confirmed to exist as a field, but its option list hasn't shown up in a snapshot yet. Send the option list when you can and I'll pick the ones matching a custom Node/API-based build rather than a no-code platform.
+- **Bot Type** — confirmed 13-option list, multi-select, none selected yet: Customer Service & Support, E-commerce & Payments, Social Media & Content, Scheduling & Assistance, Entertainment & Gaming, Learning & Development, Health & Wellness, Travel & Transportation, Food & Restaurant Services, News & Information Updates, Survey & Feedback Collection, Real Estate Assistance, Other. **Select "Customer Service & Support"** — that's the gig's actual positioning. Skip the rest unless you genuinely want to signal a niche (e.g., add "Survey & Feedback Collection" if you want to emphasize the lead-capture angle in Standard/Premium).
+- **Platforms** — confirmed to exist as a field, option list not yet seen. Based on the FAQ section below (which already promises Messenger/Instagram support), likely candidates are Website, Facebook Messenger, Instagram, WhatsApp — only select the ones you're actually prepared to deliver, since it's buyer-facing.
 
 ### Pricing
 
