@@ -8,7 +8,7 @@ Manual-input reference for creating each Track 4 gig on Fiverr. Referenced from 
 
 Fiverr's gig-creation form runs through five tabs: **Overview** (title, category, subcategory, search tags) → **Pricing** (3 packages, each with its own delivery time, revisions, and category-specific attribute checkboxes) → **Description & FAQ** → **Requirements** (what buyers fill in before you start work) → **Gallery**.
 
-One real limitation: Fiverr shows a different set of **standardized package attribute checkboxes** depending on the subcategory you pick (your live Track 1 gig has "Number of pages," "Content upload," "Speed optimization," etc. — that's the Websites & Apps attribute set). The chatbot/automation/audit subcategories will show a *different* attribute set that isn't visible without being on the live form. Everything below gives you the deliverables in plain language — when you get to the Pricing tab, map each bullet onto whatever checkbox/dropdown Fiverr actually shows you for that subcategory, rather than expecting an exact match to what's written here.
+One real limitation: Fiverr shows a different set of **standardized package attribute checkboxes** depending on the subcategory you pick (your live Track 1 gig has "Number of pages," "Content upload," "Speed optimization," etc. — that's the Websites & Apps attribute set). The chatbot/automation/audit subcategories show a *different* attribute set — confirmed for the AI Chatbot/FAQ Bot gig below (AI Engine dropdown + Programming Languages Supported multi-select) since you shared its live form JSON; not yet confirmed for the others. Everything below gives you the deliverables in plain language — when you get to the Pricing tab for an unconfirmed gig, map each bullet onto whatever checkbox/dropdown Fiverr actually shows you for that subcategory, rather than expecting an exact match to what's written here. If you can grab the same JSON snapshot for the other gigs' edit pages, send it over and I'll fill in the rest the same way.
 
 Suggested category/subcategory is a best-guess based on standard Fiverr taxonomy — confirm against the live dropdown, since Fiverr periodically renames or moves subcategories.
 
@@ -16,14 +16,18 @@ Suggested category/subcategory is a best-guess based on standard Fiverr taxonomy
 
 ## 1. AI Chatbot / FAQ Bot
 
-**Suggested category:** Programming & Tech → AI Services → AI Chatbot Development (or AI Applications, depending on what your account's dropdown shows)
+**Confirmed category path** (from your live gig-edit form — this is exact, not a guess): Programming & Tech → **AI Development** → **AI Integrations**.
 
 **Gig title (pick one, ≤80 characters):**
 - I will build a custom AI chatbot or FAQ bot for your website
 - I will create an AI FAQ chatbot for your business website
 
-**Search tags (5, ≤20 characters each):**
+**Search tags (5, ≤20 characters each — your draft currently only has 2 of 5 filled in):**
 `ai chatbot` · `faq bot` · `chatbot setup` · `customer support ai` · `website chatbot`
+
+**Gig metadata fields (confirmed from your live form — these are the standardized attributes for this subcategory):**
+- **AI Engine** — dropdown, currently unset on your draft. Set this to whichever engine you'll actually build with (Claude/Anthropic if that's your build stack, or OpenAI/GPT if you're using that API — pick the one you'll really use, since it's buyer-facing and sets an expectation).
+- **Programming Languages Supported** — multi-select, up to 10, from a fixed list (Assembly, Apex, C, C#, C++, Dart, Go, Java, JavaScript, Kotlin, Objective-C, PHP, Python, Ruby, Swift, TypeScript, R, React, PyTorch, Tensorflow, Keras, Julia, Lisp, Other). Your draft currently has only **JavaScript** selected. Given the Node/Express stack in `AGENTS.md`, I'd add **TypeScript** and **React** (the widget frontend) at minimum — add **Python** too if you'd ever build the bot logic in Python instead.
 
 ### Pricing
 
