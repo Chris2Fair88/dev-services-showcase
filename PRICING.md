@@ -74,7 +74,7 @@ Marketplace lead-gen gigs. Full package details in `fiverr-adjacent-gigs-package
 | **Backend/API-Only Development** | $250 | $550 | $1,000 |
 | **SEO & AI Search Visibility Audit (GEO/AEO)** | $70 | $200 | $450 |
 
-**SEO & AI Search Visibility Audit (GEO/AEO) — scope detail** (new gig, added here pending a home in `fiverr-adjacent-gigs-packages.md`):
+**SEO & AI Search Visibility Audit (GEO/AEO) — scope detail** (also reproduced in `fiverr-adjacent-gigs-packages.md` alongside full gig-setup content for all 7 Track 4 gigs):
 - **Basic ($70):** Core on-page SEO pass — title tags, meta descriptions, header structure, image alt text, keyword usage, basic Core Web Vitals flags. Written report (PDF) with 3–5 priority fixes.
 - **Standard ($200):** Everything in Basic, plus an AI search visibility audit (GEO/AEO) — how content reads to ChatGPT/Perplexity/Google AI Overviews, schema/structured data review, content-extractability pass, one competitor snapshot. Combined SEO + GEO prioritized action plan.
 - **Premium ($450):** Everything in Standard, plus a full technical crawl (broken links, redirect chains, indexation issues), keyword-gap analysis vs. 2 competitors, and a 30-min live walkthrough call. Full $450 is credited toward the first month of the Track 2 Ongoing SEO/Content retainer if the client signs on within 30 days.
@@ -104,3 +104,4 @@ Priced individually, layered onto any Track 1–4 package rather than folded sil
 - **July 2026**: Track 3 (Business Systems Integration) and Track 4 (adjacent Fiverr gigs) established.
 - **July 2026**: All services converted from ranges to flat rates. Track 1 tiers set to $125/$300/$700. Track 2 packages set to $2,300/$4,800/$5,500, hourly to $75/hr, retainer to $450/mo. Track 3 tiers set to flat per-tier anchors ($550/$2,200/$4,200/$6,500), retainer to $300/mo. Add-ons (API integration, workflow automation, MCP workflow system, documentation package, QA review, ongoing maintenance) priced individually for the first time, based on current market data for each category.
 - **July 2026**: Added **SEO & AI Search Visibility Audit (GEO/AEO)** to Track 4 ($70/$200/$450) — a low-competition entry gig funneling into the Track 2 SEO/content retainer, differentiated from generic SEO gigs by covering AI-search (GEO/AEO) visibility alongside traditional on-page SEO.
+- **August 2026**: Created `fiverr-adjacent-gigs-packages.md` — full manual-input setup content (titles, tags, package tiers, descriptions, FAQ, requirements) for all 7 Track 4 gigs, closing the gap this file referenced but never filled. Also flagged that Website Speed & Technical Audit's tier scope was never formally settled (unlike its GEO/AEO sibling) — a draft breakdown now exists in that file pending sign-off.
