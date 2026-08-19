@@ -82,16 +82,16 @@ Reasoning: LLM integration and pre-set conversational journeys match the FAQ's "
 > Tired of answering the same customer questions over and over? I'll build you a custom AI chatbot or FAQ bot that handles it automatically, so you can focus on running your business instead of your inbox.
 >
 > What you get:
-> • A chatbot trained on YOUR business — hours, pricing, services, policies, whatever your customers actually ask
+> • A chatbot trained on YOUR business: hours, pricing, services, policies, whatever your customers actually ask
 > • Clean, on-brand chat widget that fits right into your website
 > • Lead capture so new inquiries land in your inbox, not lost in a chat window
-> • Clear fallback handling — if the bot can't answer, it says so and hands off to you, never guesses
+> • Clear fallback handling. If the bot can't answer, it says so and hands off to you, never guesses
 >
 > I work with modern AI platforms to build something that's actually reliable, not a gimmick that frustrates your customers. Every package includes a real walkthrough so you're never stuck wondering how to update it later.
 >
 > Perfect for: service businesses, local shops, coaches, consultants, or any site getting repetitive DMs and emails.
 >
-> Message me before ordering if your use case is a little different — happy to confirm scope first so there are no surprises.
+> Message me before ordering if your use case is a little different. Happy to confirm scope first so there are no surprises.
 
 ### FAQ
 
