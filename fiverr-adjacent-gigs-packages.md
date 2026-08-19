@@ -66,9 +66,9 @@ Reasoning: LLM integration and pre-set conversational journeys match the FAQ's "
 | Extra fast delivery — Premium | Yes | $75 | 7→4 days | |
 | Integration with CRM/database | Yes | $150 | +1 day | Lets Basic/Standard buyers get Premium's lead-routing without a full tier upgrade |
 | User authentication | **No — leave disabled** | — | — | Still real scope creep. Selling it as a fixed-price checkout extra locks in a price for something that actually needs custom scoping — if a buyer wants it, that's a message-first conversation, not a button |
-| Multi-language support | Yes | $30 | +0 days | Cheap to offer since the underlying LLM already handles it — price reflects the low actual cost |
+| Multi-language support | Yes | $30 | +1 day (form minimum — 1–14 day range, no 0-day option) | Cheap to offer since the underlying LLM already handles it — price reflects the low actual cost |
 | Source Code | Yes | $250 | +1 day | Resolves the earlier open question: don't give it away free on any tier (protects the reusable framework and the $150/mo maintenance upsell), but sell it at a price reflecting what's given up if a buyer specifically wants ownership |
-| Additional revision | Yes | $15 | +0 days | Standard Fiverr extra |
+| Additional revision | Yes | $15 | +1 day (form minimum) | Standard Fiverr extra |
 
 **Custom extra slot(s)** — form confirms at least one is available, count not yet known. Recommended, in priority order: **+25 extra FAQ Q&A pairs** ($50, +1 day — lets Basic/Standard buyers scale up without a full tier jump), then **add a second platform integration** ($75/platform, +1 day) if more than one custom slot is allowed.
 
