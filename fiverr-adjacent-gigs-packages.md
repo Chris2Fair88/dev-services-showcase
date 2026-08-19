@@ -104,10 +104,14 @@ Reasoning: LLM integration and pre-set conversational journeys match the FAQ's "
 
 ### Requirements (buyer fills in before work starts)
 
+Fiverr auto-adds 2 default questions to every gig ("If you're ordering for a business, what's your industry?" and "Is this order part of a bigger project you're working on?") — optional, nothing to write, they just appear. Everything below is added by you as custom questions.
+
+Note: Fiverr's Requirements form doesn't support a question being required for some packages and optional for others — required/optional is set once for the whole gig, not per tier. Question 4 below is marked optional for that reason, since it isn't relevant to Basic buyers.
+
 1. What platform is your website built on? *(required)*
 2. List the top questions your customers ask you *(required)*
 3. Do you have brand colors/logo to match the widget to? *(optional)*
-4. Where should leads/questions be sent (email, CRM, etc.)? *(required for Standard/Premium)*
+4. Where should leads/questions be sent (email, CRM, etc.)? *(optional — only relevant to Standard/Premium, can't be conditionally required)*
 5. Any existing chatbot or live chat tool currently in use? *(optional)*
 
 ### Gallery
