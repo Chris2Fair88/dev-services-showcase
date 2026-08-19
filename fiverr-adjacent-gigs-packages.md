@@ -70,7 +70,12 @@ Reasoning: LLM integration and pre-set conversational journeys match the FAQ's "
 | Source Code | Yes | $250 | +1 day | Resolves the earlier open question: don't give it away free on any tier (protects the reusable framework and the $150/mo maintenance upsell), but sell it at a price reflecting what's given up if a buyer specifically wants ownership |
 | Additional revision | Yes | $15 | +1 day (form minimum) | Standard Fiverr extra |
 
-**Custom extra slot(s)** — form confirms at least one is available, count not yet known. Recommended, in priority order: **+25 extra FAQ Q&A pairs** ($50, +1 day — lets Basic/Standard buyers scale up without a full tier jump), then **add a second platform integration** ($75/platform, +1 day) if more than one custom slot is allowed.
+**Custom extras** — confirmed repeatable via "+ Add Gig Extra" (not a fixed slot count). Each has: Title (≤20 chars), Description (free text), price ($), and an additional-days dropdown (1–14, same as the built-in extras above, no 0-day option). Add both of these:
+
+| Title (≤20 char) | Description | Price | Additional days |
+|---|---|---|---|
+| `+25 FAQ Pairs` | I will add 25 more FAQ questions and answers to your bot's knowledge base. | $50 | 1 |
+| `Additional Platform` | I will connect your chatbot to one more platform beyond what's included in your package. | $75 | 1 |
 
 ### Gig description (≤1,200 characters — ready to paste)
 
