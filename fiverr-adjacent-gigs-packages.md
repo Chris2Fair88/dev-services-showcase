@@ -41,7 +41,21 @@ Suggested category/subcategory is a best-guess based on standard Fiverr taxonomy
 | Delivery time | 3 days | 5 days | 7 days |
 | Revisions | 2 | 3 | Unlimited (within scope) |
 | Description (≤100 char) | A simple FAQ chatbot answering your top 10 common customer questions. | FAQ bot plus lead capture form and basic conversation flow for your site. | Full AI chatbot with natural responses, lead capture, and CRM/email routing. |
-| Deliverables | Up to 10 FAQ Q&A pairs configured · single platform (website widget or Messenger) · basic greeting/fallback message | Up to 25 FAQ Q&A pairs · lead capture (name/email/question) · branded widget matching site colors · basic multi-step conversation flow · setup walkthrough doc | Unlimited FAQ knowledge base (AI-generated responses, not just scripted) · lead capture with email/CRM notification routing · multi-step conversation flows · branded widget · one platform integration (website or Messenger/Instagram) · documentation + light training on how to update it |
+| Deliverables | Up to 10 FAQ Q&A pairs configured · single platform (website widget or Messenger) · basic greeting/fallback message | Up to 25 FAQ Q&A pairs · lead capture (name/email/question) · branded widget matching site colors · basic multi-step conversation flow · setup walkthrough doc | Unlimited FAQ knowledge base (AI-generated responses, not just scripted) · lead capture with email/CRM notification routing · multi-step conversation flows · branded widget · one platform integration (website or Messenger/Instagram) · documentation + light training on how to update it · responds in the customer's language (multi-language support) |
+
+**Per-package checkbox attributes** (confirmed from your live Pricing tab — 7 checkbox rows, one column per tier):
+
+| Attribute | Basic | Standard | Premium |
+|---|---|---|---|
+| AI LLM model integration | ☐ | ☑ | ☑ |
+| Retrieval-Augmented Generation (RAG) | ☐ | ☐ | ☑ |
+| Pre-set conversational journey | ☐ | ☑ | ☑ |
+| Integration with CRM / database | ☐ | ☐ | ☑ |
+| User authentication | ☐ | ☐ | ☐ |
+| Multi-language support | ☐ | ☐ | ☑ |
+| Source Code | ☐ | ☐ | ☐ |
+
+Reasoning: LLM integration and pre-set conversational journeys match the FAQ's "Basic = scripted, Standard/Premium = AI-powered" split and the multi-step-flow deliverables. RAG and CRM/database integration are Premium-only since only Premium's copy promises an "unlimited AI-generated knowledge base" and "CRM notification routing." User authentication is left unchecked everywhere — genuine scope creep for this price range, push to a custom quote if a buyer asks. Source Code is left unchecked everywhere by design — this is priced and positioned as a managed/configured product (buyer gets the working bot + widget), not a code handover, which also keeps the door open for the $150/mo maintenance add-on in `PRICING.md` rather than buyers owning the code outright. Multi-language is added to Premium only, since Standard/Premium's underlying LLM can already handle it with little extra build effort — it's a low-cost differentiator for the top tier.
 
 ### Gig description (≤1,200 characters — ready to paste)
 
