@@ -57,6 +57,21 @@ Suggested category/subcategory is a best-guess based on standard Fiverr taxonomy
 
 Reasoning: LLM integration and pre-set conversational journeys match the FAQ's "Basic = scripted, Standard/Premium = AI-powered" split and the multi-step-flow deliverables. RAG and CRM/database integration are Premium-only since only Premium's copy promises an "unlimited AI-generated knowledge base" and "CRM notification routing." User authentication is left unchecked everywhere — genuine scope creep for this price range, push to a custom quote if a buyer asks. Source Code is left unchecked everywhere by design — this is priced and positioned as a managed/configured product (buyer gets the working bot + widget), not a code handover, which also keeps the door open for the $150/mo maintenance add-on in `PRICING.md` rather than buyers owning the code outright. Multi-language is added to Premium only, since Standard/Premium's underlying LLM can already handle it with little extra build effort — it's a low-cost differentiator for the top tier.
 
+**"Add extra services" (Gig Extras)** — confirmed from your live form: the same attributes as the checkbox table above (minus AI LLM integration, RAG, and pre-set conversational journey, which aren't offered as standalone extras) can be sold separately to buyers who didn't get them baked into their tier, plus "Extra fast delivery" and "Additional revision," plus at least one custom-defined extra slot.
+
+| Extra | Enable? | Price | Extra days | Why |
+|---|---|---|---|---|
+| Extra fast delivery — Basic | Yes | $25 | 3→2 days | Standard Fiverr extra |
+| Extra fast delivery — Standard | Yes | $50 | 5→3 days | |
+| Extra fast delivery — Premium | Yes | $75 | 7→4 days | |
+| Integration with CRM/database | Yes | $150 | +1 day | Lets Basic/Standard buyers get Premium's lead-routing without a full tier upgrade |
+| User authentication | **No — leave disabled** | — | — | Still real scope creep. Selling it as a fixed-price checkout extra locks in a price for something that actually needs custom scoping — if a buyer wants it, that's a message-first conversation, not a button |
+| Multi-language support | Yes | $30 | +0 days | Cheap to offer since the underlying LLM already handles it — price reflects the low actual cost |
+| Source Code | Yes | $250 | +1 day | Resolves the earlier open question: don't give it away free on any tier (protects the reusable framework and the $150/mo maintenance upsell), but sell it at a price reflecting what's given up if a buyer specifically wants ownership |
+| Additional revision | Yes | $15 | +0 days | Standard Fiverr extra |
+
+**Custom extra slot(s)** — form confirms at least one is available, count not yet known. Recommended, in priority order: **+25 extra FAQ Q&A pairs** ($50, +1 day — lets Basic/Standard buyers scale up without a full tier jump), then **add a second platform integration** ($75/platform, +1 day) if more than one custom slot is allowed.
+
 ### Gig description (≤1,200 characters — ready to paste)
 
 > Tired of answering the same customer questions over and over? I'll build you a custom AI chatbot or FAQ bot that handles it automatically, so you can focus on running your business instead of your inbox.
