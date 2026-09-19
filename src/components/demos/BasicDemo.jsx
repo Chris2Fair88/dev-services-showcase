@@ -2,7 +2,7 @@ export default function BasicDemo() {
   return (
     <div className="bakery">
       <header className="bakery-header">
-        <div className="bakery-logo">☀ Sunrise Bakery</div>
+        <div className="bakery-logo"><span aria-hidden="true">☀</span> Sunrise Bakery</div>
         <nav className="bakery-nav">
           <span>Menu</span>
           <span>About</span>
@@ -22,7 +22,7 @@ export default function BasicDemo() {
         <p>Our bakers start at 4am so your favorites are ready when you arrive.</p>
         <div className="bakery-menu-grid">
           <div className="bakery-item">
-            <div className="bakery-item-img" style={{ background: '#FEF3C7' }}>🍞</div>
+            <div className="bakery-item-img" style={{ background: '#FEF3C7' }} aria-hidden="true">🍞</div>
             <div className="bakery-item-info">
               <div className="bakery-item-name">Country Sourdough</div>
               <div className="bakery-item-price">$8.00</div>
@@ -30,7 +30,7 @@ export default function BasicDemo() {
             </div>
           </div>
           <div className="bakery-item">
-            <div className="bakery-item-img" style={{ background: '#FEF9C3' }}>🥐</div>
+            <div className="bakery-item-img" style={{ background: '#FEF9C3' }} aria-hidden="true">🥐</div>
             <div className="bakery-item-info">
               <div className="bakery-item-name">Butter Croissant</div>
               <div className="bakery-item-price">$3.50</div>
@@ -38,7 +38,7 @@ export default function BasicDemo() {
             </div>
           </div>
           <div className="bakery-item">
-            <div className="bakery-item-img" style={{ background: '#FCE7F3' }}>🎂</div>
+            <div className="bakery-item-img" style={{ background: '#FCE7F3' }} aria-hidden="true">🎂</div>
             <div className="bakery-item-info">
               <div className="bakery-item-name">Custom Cake</div>
               <div className="bakery-item-price">from $45</div>

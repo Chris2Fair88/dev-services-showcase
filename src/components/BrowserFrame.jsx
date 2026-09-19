@@ -9,7 +9,7 @@ export default function BrowserFrame({ url, children }) {
         </div>
         <div className="browser-url">{url}</div>
       </div>
-      <div className="browser-content">
+      <div className="browser-content" role="group" aria-hidden="true">
         {children}
       </div>
     </div>

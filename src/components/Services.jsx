@@ -1,3 +1,6 @@
+import { useNavigate, useLocation } from 'react-router-dom'
+import { scrollOrNavigate } from '../utils/sectionLink'
+
 const tiers = [
   {
     badge: 'Basic',
@@ -11,7 +14,7 @@ const tiers = [
       'Clean content structure',
       'Contact / hours section',
     ],
-    link: '#example-basic',
+    link: 'example-basic',
   },
   {
     badge: 'Standard',
@@ -28,7 +31,7 @@ const tiers = [
       'Contact form UI',
       'Deployment guidance',
     ],
-    link: '#example-standard',
+    link: 'example-standard',
   },
   {
     badge: 'Premium',
@@ -44,11 +47,14 @@ const tiers = [
       'Client-specific business logic',
       'Deployment guidance',
     ],
-    link: '#example-premium',
+    link: 'example-premium',
   },
 ]
 
 export default function Services() {
+  const navigate = useNavigate()
+  const location = useLocation()
+
   return (
     <section className="services" id="services">
       <div className="container">
@@ -71,7 +77,13 @@ export default function Services() {
               <ul className="service-features">
                 {t.features.map(f => <li key={f}>{f}</li>)}
               </ul>
-              <a href={t.link} className="service-link">See live example →</a>
+              <a
+                href={`#${t.link}`}
+                className="service-link"
+                onClick={scrollOrNavigate(navigate, location, t.link)}
+              >
+                See live example →
+              </a>
             </div>
           ))}
         </div>

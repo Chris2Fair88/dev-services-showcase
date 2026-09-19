@@ -49,7 +49,7 @@ export default function StandardDemo() {
             { icon: '🥊', name: 'Boxing', desc: 'Technique & conditioning' },
           ].map(c => (
             <div key={c.name} className="fitness-class-card">
-              <div className="fitness-class-icon">{c.icon}</div>
+              <div className="fitness-class-icon" aria-hidden="true">{c.icon}</div>
               <div className="fitness-class-name">{c.name}</div>
               <div className="fitness-class-desc">{c.desc}</div>
             </div>

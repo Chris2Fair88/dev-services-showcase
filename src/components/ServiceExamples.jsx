@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import BrowserFrame from './BrowserFrame'
 import BasicDemo from './demos/BasicDemo'
 import StandardDemo from './demos/StandardDemo'
@@ -33,16 +34,20 @@ const examples = [
   },
 ]
 
-export default function TierExamples() {
+export default function ServiceExamples() {
   return (
-    <section className="tier-examples" id="examples">
+    <section className="tier-examples" id="work">
       <div className="container">
         <div className="examples-header">
-          <span className="section-label">Live Examples</span>
+          <span className="section-label">Work</span>
           <h2 className="section-title">See what each tier delivers</h2>
           <p className="section-sub">
             Every example below was built to show the full scope and quality of that service tier.
           </p>
+          <p className="section-note">
+            These are illustrative example builds created to demonstrate each tier, not commissioned client work.
+          </p>
+          <Link to="/services" className="service-link">See pricing →</Link>
         </div>
 
         {examples.map(({ id, tier, tierClass, title, desc, url, Demo }) => (

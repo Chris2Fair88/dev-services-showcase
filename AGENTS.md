@@ -113,7 +113,7 @@ Use these projects when creating bios, proposals, case studies, or service examp
 - Library Project
 - Coffee Shop Project
 - Portfolio Website
-- Music Business MCP
+- Tempo
 - Dev Services Showcase (chris2fair88.github.io/dev-services-showcase)
 
 ## Default Delivery Style

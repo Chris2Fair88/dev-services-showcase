@@ -1,6 +1,6 @@
 const navItems = [
-  { icon: '⊞', label: 'Dashboard', active: true },
-  { icon: '▣', label: 'Projects' },
+  { icon: '⊞', label: 'Dashboard', active: true, decorative: true },
+  { icon: '▣', label: 'Projects', decorative: true },
   { icon: '☑', label: 'Tasks' },
   { icon: '◎', label: 'Team' },
   { icon: '↗', label: 'Reports' },
@@ -38,7 +38,7 @@ export default function PremiumDemo() {
         <nav className="dash-nav">
           {navItems.map(item => (
             <div key={item.label} className={`dash-nav-item${item.active ? ' active' : ''}`}>
-              <span className="dash-nav-icon">{item.icon}</span>
+              <span className="dash-nav-icon" aria-hidden={item.decorative ? 'true' : undefined}>{item.icon}</span>
               {item.label}
             </div>
           ))}
