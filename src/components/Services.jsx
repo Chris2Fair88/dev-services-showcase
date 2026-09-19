@@ -2,7 +2,7 @@ const tiers = [
   {
     badge: 'Basic',
     badgeClass: 'badge-basic',
-    price: '$80',
+    price: '$125',
     name: 'Starter React Page',
     desc: 'A single, focused React page — clean layout, responsive design, and polished presentation ready to launch.',
     features: [
@@ -10,14 +10,13 @@ const tiers = [
       'Fully responsive layout',
       'Clean content structure',
       'Contact / hours section',
-      'GitHub Pages deployment',
     ],
     link: '#example-basic',
   },
   {
     badge: 'Standard',
     badgeClass: 'badge-standard',
-    price: '$180',
+    price: '$300',
     name: 'Modern React Website',
     desc: 'A complete multi-section website with modern design, reusable components, and polished brand presentation.',
     featured: true,
@@ -34,7 +33,7 @@ const tiers = [
   {
     badge: 'Premium',
     badgeClass: 'badge-premium',
-    price: '$350',
+    price: '$700',
     name: 'Full Stack Web App',
     desc: 'A functional web application with React frontend, Node.js backend, MongoDB data layer, and API integrations.',
     features: [

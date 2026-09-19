@@ -6,7 +6,7 @@ import PremiumDemo from './demos/PremiumDemo'
 const examples = [
   {
     id: 'example-basic',
-    tier: 'Basic — $80',
+    tier: 'Basic — $125',
     tierClass: 'tier-basic',
     title: 'Sunrise Bakery',
     desc: 'A focused single-page React site for a local bakery — hero, menu display, and contact info. Responsive, clean, and ready to launch.',
@@ -15,7 +15,7 @@ const examples = [
   },
   {
     id: 'example-standard',
-    tier: 'Standard — $180',
+    tier: 'Standard — $300',
     tierClass: 'tier-standard',
     title: 'Apex Fitness Studio',
     desc: 'A full multi-section React website for a gym — navigation, hero, class showcase, stats, member testimonials. Polished design with reusable components throughout.',
@@ -24,7 +24,7 @@ const examples = [
   },
   {
     id: 'example-premium',
-    tier: 'Premium — $350',
+    tier: 'Premium — $700',
     tierClass: 'tier-premium',
     title: 'FlowTrack Dashboard',
     desc: 'A full stack project management application — React frontend, Node.js/Express API, MongoDB data layer. Sidebar navigation, live stats cards, project tracking table, and user accounts.',
