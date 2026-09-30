@@ -80,7 +80,7 @@ export default function Services() {
               <a
                 href={`#${t.link}`}
                 className="service-link"
-                onClick={scrollOrNavigate(navigate, location, t.link)}
+                onClick={scrollOrNavigate(navigate, location, t.link, '/services')}
               >
                 See live example →
               </a>

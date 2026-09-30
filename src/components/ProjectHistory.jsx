@@ -38,7 +38,7 @@ const projects = [
 
 export default function ProjectHistory() {
   return (
-    <section className="project-history">
+    <section className="project-history" id="work">
       <div className="container">
         <div className="history-header">
           <span className="section-label">Project History</span>

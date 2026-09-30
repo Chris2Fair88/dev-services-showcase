@@ -1,3 +1,5 @@
+import chrisPhoto from '../assets/chris-fairbanks.jpg'
+
 const skills = ['JavaScript', 'React', 'Node.js', 'Express', 'MongoDB', 'HTML', 'CSS', 'Git']
 
 export default function About() {
@@ -6,6 +8,7 @@ export default function About() {
       <div className="container">
         <div className="about-grid">
           <div className="about-header">
+            <img src={chrisPhoto} alt="Chris Fairbanks" className="about-photo" />
             <span className="section-label">About</span>
             <h2 className="section-title">The person behind the code</h2>
             <p className="section-sub">

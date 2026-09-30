@@ -1,13 +1,14 @@
-// Section anchors (Work, Process, About, Contact, individual examples) live only on
-// the home page. When the link is clicked from another route, navigate home first and
-// scroll once Home has mounted; when already on home, just scroll immediately.
-export function scrollOrNavigate(navigate, location, id) {
+// Section anchors (Work, About, Contact, individual examples) live on a specific
+// route (home by default, /services for sample-build examples). When the link is
+// clicked from another route, navigate to that route first and scroll once it has
+// mounted; when already on the target route, just scroll immediately.
+export function scrollOrNavigate(navigate, location, id, targetPath = '/') {
   return (e) => {
     e.preventDefault()
-    if (location.pathname === '/') {
+    if (location.pathname === targetPath) {
       document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
     } else {
-      navigate('/', { state: { scrollTo: id } })
+      navigate(targetPath, { state: { scrollTo: id } })
     }
   }
 }

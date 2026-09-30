@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import Hero from '../components/Hero'
 import Work from '../components/Work'
-import Process from '../components/Process'
+import ServicesBridge from '../components/ServicesBridge'
 import About from '../components/About'
 import ContactCTA from '../components/ContactCTA'
 
@@ -22,7 +22,7 @@ export default function Home() {
     <>
       <Hero />
       <Work />
-      <Process />
+      <ServicesBridge />
       <About />
       <ContactCTA />
     </>

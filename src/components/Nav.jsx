@@ -13,7 +13,6 @@ export default function Nav() {
           <ul className="nav-links">
             <li><a href="#work" onClick={scrollOrNavigate(navigate, location, 'work')}>Work</a></li>
             <li><Link to="/services">Services</Link></li>
-            <li><a href="#process" onClick={scrollOrNavigate(navigate, location, 'process')}>Process</a></li>
             <li><a href="#about" onClick={scrollOrNavigate(navigate, location, 'about')}>About</a></li>
             <li><a href="#contact" onClick={scrollOrNavigate(navigate, location, 'contact')}>Contact</a></li>
           </ul>

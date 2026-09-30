@@ -22,6 +22,9 @@ export default function Hero() {
           <a href="#work" className="btn btn-primary" onClick={scrollOrNavigate(navigate, location, 'work')}>
             See My Work
           </a>
+          <a href="#contact" className="btn btn-outline" onClick={scrollOrNavigate(navigate, location, 'contact')}>
+            Hire Me for a Project
+          </a>
           <a
             href="https://www.linkedin.com/in/chris-fairbanks-20a103345"
             target="_blank"
