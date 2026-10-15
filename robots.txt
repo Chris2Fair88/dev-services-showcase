@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://chris2fair88.github.io/dev-services-showcase/sitemap.xml

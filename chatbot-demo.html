@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Chatbot / FAQ Bot Demo | Chris Fairbanks Dev</title>
+<link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+<style>
+  :root {
+    --navy: #0F172A;
+    --navy-light: #1E293B;
+    --blue: #3B82F6;
+    --blue-dark: #2563EB;
+    --blue-user: #1D4ED8;
+    --text: #E2E8F0;
+    --text-dim: #94A3B8;
+    --bg: #F8FAFC;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    min-height: 100vh;
+  }
+  .page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 64px 24px 200px;
+    text-align: center;
+    color: var(--navy);
+  }
+  .page h1 { font-size: 1.75rem; margin-bottom: 8px; }
+  .page p { color: #475569; line-height: 1.6; }
+  .badge {
+    display: inline-block;
+    background: var(--navy);
+    color: var(--blue);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 4px 12px;
+    border-radius: 999px;
+    margin-bottom: 16px;
+  }
+
+  /* Floating launcher button */
+  .launcher {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--blue);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.15s ease;
+    z-index: 1000;
+  }
+  .launcher:hover { transform: scale(1.06); }
+  .launcher svg { width: 28px; height: 28px; fill: white; }
+  .launcher .close-icon { display: none; }
+  .launcher.open .chat-icon { display: none; }
+  .launcher.open .close-icon { display: block; }
+
+  /* Chat window */
+  .chat-window {
+    position: fixed;
+    bottom: 96px;
+    right: 24px;
+    width: 360px;
+    max-width: calc(100vw - 32px);
+    height: 520px;
+    max-height: calc(100vh - 140px);
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.25);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(16px) scale(0.98);
+    pointer-events: none;
+    transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s linear 0.18s;
+    z-index: 999;
+  }
+  .chat-window.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+    transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s linear 0s;
+  }
+
+  .chat-header {
+    background: var(--navy);
+    color: white;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .chat-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+  }
+  .chat-header-text { line-height: 1.3; }
+  .chat-header-text .name { font-weight: 600; font-size: 0.9rem; }
+  .chat-header-text .status { font-size: 0.72rem; color: #86efac; display: flex; align-items: center; gap: 5px; }
+  .chat-header-text .status::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #4ade80;
+    display: inline-block;
+  }
+
+  .chat-body {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #F1F5F9;
+  }
+
+  .msg {
+    max-width: 82%;
+    min-width: 0;
+    padding: 9px 13px;
+    border-radius: 14px;
+    font-size: 0.86rem;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+    animation: fadeIn 0.2s ease;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .msg.bot {
+    align-self: flex-start;
+    background: white;
+    color: var(--navy);
+    border-bottom-left-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  .msg.user {
+    align-self: flex-end;
+    background: var(--blue-user);
+    color: white;
+    border-bottom-right-radius: 4px;
+  }
+
+  .quick-replies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-self: flex-start;
+    max-width: 100%;
+  }
+  .quick-reply {
+    background: white;
+    border: 1px solid #CBD5E1;
+    color: var(--blue-dark);
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 6px 11px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+  .quick-reply:hover { background: #EFF6FF; border-color: var(--blue); }
+
+  .typing {
+    align-self: flex-start;
+    background: white;
+    padding: 11px 14px;
+    border-radius: 14px;
+    border-bottom-left-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    display: flex;
+    gap: 4px;
+  }
+  .typing span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #94A3B8;
+    animation: bounce 1.2s infinite;
+  }
+  .typing span:nth-child(2) { animation-delay: 0.15s; }
+  .typing span:nth-child(3) { animation-delay: 0.3s; }
+  @keyframes bounce {
+    0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
+    30% { transform: translateY(-4px); opacity: 1; }
+  }
+
+  .chat-input {
+    display: flex;
+    gap: 8px;
+    padding: 10px;
+    border-top: 1px solid #E2E8F0;
+    background: white;
+  }
+  .chat-input input {
+    flex: 1;
+    border: 1px solid #CBD5E1;
+    border-radius: 999px;
+    padding: 9px 14px;
+    font-size: 0.86rem;
+    outline: none;
+  }
+  .chat-input input:focus { border-color: var(--blue); }
+  .chat-input button {
+    background: var(--blue);
+    border: none;
+    color: white;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .chat-input button svg { width: 16px; height: 16px; fill: white; }
+
+  .demo-note {
+    font-size: 0.72rem;
+    color: #475569;
+    text-align: center;
+    padding: 6px 10px 0;
+    background: white;
+  }
+
+  @media (max-width: 600px) {
+    .chat-input input { min-height: 40px; }
+    .chat-input button { width: 40px; height: 40px; }
+    .quick-reply { min-height: 40px; display: inline-flex; align-items: center; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .chat-window { transition: none; }
+    .msg { animation: none; }
+    .typing span { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <span class="badge">GIG GALLERY DEMO</span>
+  <h1>AI Chatbot / FAQ Bot: Live Demo</h1>
+  <p>Click the chat bubble in the bottom-right corner to try it. This is a scripted demo running on a small set of preset FAQ topics about Chris Fairbanks' dev services, the same style of bot built for buyers on the AI Chatbot / FAQ Bot gig. Try the quick-reply buttons, or type your own question about pricing, turnaround time, or the tech stack.</p>
+</div>
+
+<button type="button" class="launcher" id="launcher" aria-label="Open chat" aria-expanded="false" aria-controls="chatWindow">
+  <svg class="chat-icon" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+  <svg class="close-icon" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+</button>
+
+<div class="chat-window" id="chatWindow" role="dialog" aria-label="FAQ chatbot demo">
+  <div class="chat-header">
+    <div class="chat-avatar">CF</div>
+    <div class="chat-header-text">
+      <div class="name">Chris Fairbanks Dev</div>
+      <div class="status">Usually replies within a day</div>
+    </div>
+  </div>
+  <div class="chat-body" id="chatBody" role="log" aria-live="polite"></div>
+  <div class="chat-input">
+    <input type="text" id="chatInput" placeholder="Ask a question..." aria-label="Ask a question" autocomplete="off" />
+    <button type="button" id="sendBtn" aria-label="Send">
+      <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+    </button>
+  </div>
+  <div class="demo-note">Scripted demo bot &middot; gig gallery sample</div>
+</div>
+
+<script>
+(function () {
+  var FAQ = [
+    {
+      // Typed-only: no quick-reply chip, so the chip row stays at seven topics.
+      topic: 'SEO',
+      noChip: true,
+      keywords: ['seo', 'search engine', 'search engines', 'search visibility', 'ranking', 'rankings', 'rank on google', 'google ranking', 'show up on google', 'found on google'],
+      reply: "Yes, Chris works on SEO. What that involves depends on your site and your goals, so message him with your site address and what you want to improve, and he will tell you what fits. Search rankings can't be guaranteed, so he will be upfront about what is realistic."
+    },
+    {
+      topic: 'Pricing',
+      keywords: ['price', 'pricing', 'cost', 'how much', 'rate', 'rates'],
+      reply: "Websites: a Starter React Page is $125, a Modern React Website is $300, and a Full Stack Web App (React + Node + MongoDB) is $700. AI chatbots: a Simple FAQ Bot is $65, a Business FAQ + Lead Capture Bot is $200, and an AI-Powered Smart Chatbot is $425. Bigger or custom projects are quoted separately."
+    },
+    {
+      topic: 'Turnaround time',
+      keywords: ['turnaround', 'how long', 'delivery', 'timeline', 'time', 'fast', 'when'],
+      reply: "Delivery time depends on the package and scope, and each Fiverr gig lists its own timeline. Larger or custom projects take longer because they start with discovery."
+    },
+    {
+      topic: 'Tech stack',
+      keywords: ['stack', 'technology', 'technical', 'tech', 'react', 'node', 'mongodb', 'built with', 'language'],
+      reply: "Websites are built with React, a popular tool for making fast, interactive pages. Larger apps add Node.js and Express (the behind-the-scenes server) and MongoDB (the database that stores your information). That's the usual setup, unless a client's existing systems need something else."
+    },
+    {
+      topic: 'AI chatbots',
+      keywords: ['chatbot', 'bot', 'faq bot', 'assistant'],
+      reply: "Yes! This chat window is actually a live example of that exact gig: custom AI chatbots and FAQ bots, built and configured for your own business, from a simple scripted FAQ bot up to a full AI-powered assistant with lead capture. This demo is the simplest scripted version of that service."
+    },
+    {
+      topic: 'Custom projects',
+      chipLabel: 'Other projects',
+      keywords: ['migrate', 'migration', 'wix', 'squarespace', 'wordpress', 'online store', 'ecommerce', 'hosting', 'logo', 'automation', 'ai agent'],
+      reply: "Projects beyond the standard packages are scoped and quoted individually. Message Chris with what you need and he will tell you whether it is a fit."
+    },
+    {
+      topic: 'Maintenance',
+      keywords: ['maintenance', 'support', 'ongoing', 'updates', 'after launch'],
+      reply: "After launch, ongoing support such as updates, backups and monitoring can be arranged separately. Message Chris for details."
+    },
+    {
+      topic: 'Getting started',
+      keywords: ['start', 'started', 'starting', 'get started', 'begin', 'hire', 'hiring', 'order', 'ordering', 'contact'],
+      reply: "Easiest way to start is to message with a short description of what you need and your budget in mind. That's usually enough to confirm scope and the right package before anything begins."
+    }
+  ];
+
+  var FALLBACK = "I don't have a scripted answer for that one, this is just a small demo bot for the gig gallery. On a real order, unmatched questions like this get handed off to Chris personally instead of guessing.";
+  var GREETING = "Hi! I'm a demo FAQ bot showing what the AI Chatbot / FAQ Bot gig can build. Try one of these, or type your own question:";
+
+  var launcher = document.getElementById('launcher');
+  var chatWindow = document.getElementById('chatWindow');
+  var chatBody = document.getElementById('chatBody');
+  var chatInput = document.getElementById('chatInput');
+  var sendBtn = document.getElementById('sendBtn');
+  var opened = false;     // has the greeting been shown yet
+  var isOpen = false;     // is the panel currently open
+  var userClosed = false; // has the user explicitly closed it at least once
+  var pending = false;    // is a reply currently in flight
+
+  function scrollToBottom() {
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+
+  function addMessage(text, sender) {
+    var el = document.createElement('div');
+    el.className = 'msg ' + sender;
+    el.textContent = text;
+    chatBody.appendChild(el);
+    scrollToBottom();
+  }
+
+  function addQuickReplies() {
+    var wrap = document.createElement('div');
+    wrap.className = 'quick-replies';
+    FAQ.forEach(function (item) {
+      if (item.noChip) return;
+      var label = item.chipLabel || item.topic;
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'quick-reply';
+      btn.textContent = label;
+      btn.addEventListener('click', function () {
+        if (pending) return;
+        pending = true;
+        wrap.remove();
+        handleUserMessage(label, item.reply);
+      });
+      wrap.appendChild(btn);
+    });
+    chatBody.appendChild(wrap);
+    scrollToBottom();
+  }
+
+  // Whole-word match (plus an optional plural "s"), so "rate" doesn't fire inside "migrate".
+  function matchFAQ(text) {
+    var lower = text.toLowerCase();
+    for (var i = 0; i < FAQ.length; i++) {
+      var kws = FAQ[i].keywords;
+      for (var j = 0; j < kws.length; j++) {
+        if (new RegExp('\\b' + kws[j] + 's?\\b').test(lower)) return FAQ[i].reply;
+      }
+    }
+    return FALLBACK;
+  }
+
+  function showTyping(callback) {
+    var typing = document.createElement('div');
+    typing.className = 'typing';
+    typing.innerHTML = '<span></span><span></span><span></span>';
+    chatBody.appendChild(typing);
+    scrollToBottom();
+    setTimeout(function () {
+      typing.remove();
+      callback();
+    }, 650 + Math.random() * 500);
+  }
+
+  function handleUserMessage(userText, forcedReply) {
+    addMessage(userText, 'user');
+    showTyping(function () {
+      addMessage(forcedReply || matchFAQ(userText), 'bot');
+      pending = false;
+    });
+  }
+
+  function showGreetingOnce() {
+    if (opened) return;
+    opened = true;
+    addMessage(GREETING, 'bot');
+    addQuickReplies();
+  }
+
+  // One open path. opts.silent is set only by the auto-open timer below: it
+  // still reaches full open state (classes, aria-expanded, the label, the
+  // greeting and chips), but never moves focus, and adds the greeting with the
+  // chat log's aria-live turned off so nothing gets announced.
+  function openChat(opts) {
+    opts = opts || {};
+    isOpen = true;
+    launcher.classList.add('open');
+    chatWindow.classList.add('open');
+    launcher.setAttribute('aria-expanded', 'true');
+    launcher.setAttribute('aria-label', 'Close chat');
+    if (opts.silent) {
+      chatBody.setAttribute('aria-live', 'off');
+      showGreetingOnce();
+      setTimeout(function () {
+        chatBody.setAttribute('aria-live', 'polite');
+      }, 500);
+    } else {
+      showGreetingOnce();
+      chatInput.focus();
+    }
+  }
+
+  function closeChat() {
+    isOpen = false;
+    userClosed = true;
+    launcher.classList.remove('open');
+    chatWindow.classList.remove('open');
+    launcher.setAttribute('aria-expanded', 'false');
+    launcher.setAttribute('aria-label', 'Open chat');
+    launcher.focus();
+  }
+
+  function toggleChat() {
+    if (isOpen) {
+      closeChat();
+    } else {
+      openChat();
+    }
+  }
+
+  launcher.addEventListener('click', toggleChat);
+
+  // Escape closes the panel from anywhere inside it and returns focus to the launcher.
+  chatWindow.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && isOpen) {
+      closeChat();
+    }
+  });
+
+  function submitInput() {
+    if (pending) return;
+    var val = chatInput.value.trim();
+    if (!val) return;
+    pending = true;
+    chatInput.value = '';
+    handleUserMessage(val);
+  }
+
+  sendBtn.addEventListener('click', submitInput);
+  chatInput.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') submitInput();
+  });
+
+  // Opens the panel shortly after load so it's visible in a screen recording
+  // without needing a click. This is a real open (aria-expanded, the label, the
+  // greeting and chips), except it never moves focus and adds the greeting
+  // silently (see openChat). Never fires if the user has already opened or
+  // closed the panel by then.
+  setTimeout(function () {
+    if (!userClosed && !isOpen) openChat({ silent: true });
+  }, 900);
+})();
+</script>
+
+</body>
+</html>
