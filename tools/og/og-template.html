@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Social share card</title>
+    <style>
+      /* Rendered to public/og-image.png by tools/og/render.mjs (npm run og:render).
+         Fixed 1200x630 canvas. Keep all content at least 60px from every edge. */
+      :root {
+        --dark: #0F172A;
+        --dark-2: #1E293B;
+        --primary: #3B82F6;
+        --text: #F8FAFC;
+        --muted: #CBD5E1;
+      }
+      html, body {
+        margin: 0;
+        width: 1200px;
+        height: 630px;
+        overflow: hidden;
+      }
+      body {
+        box-sizing: border-box;
+        padding: 0 60px;
+        display: flex;
+        align-items: center;
+        background: linear-gradient(135deg, var(--dark) 0%, var(--dark-2) 100%);
+        color: var(--text);
+        font-family: "Segoe UI", -apple-system, Roboto, Helvetica, Arial, sans-serif;
+      }
+      .photo {
+        box-sizing: border-box;
+        flex: 0 0 420px;
+        width: 420px;
+        height: 420px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 6px solid var(--primary);
+        display: block;
+      }
+      .copy {
+        margin-left: 60px;
+        width: 600px;
+      }
+      h1 {
+        margin: 0 0 18px;
+        font-size: 80px;
+        line-height: 1;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        white-space: nowrap;
+      }
+      .role {
+        margin: 0 0 28px;
+        font-size: 42px;
+        font-weight: 700;
+        color: var(--primary);
+      }
+      .stack {
+        margin: 0 0 16px;
+        font-size: 30px;
+        font-weight: 600;
+      }
+      .avail {
+        margin: 0;
+        font-size: 26px;
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <img class="photo" src="../../src/assets/chris-fairbanks.jpg" alt="" />
+    <div class="copy">
+      <h1>Chris Fairbanks</h1>
+      <p class="role">Full Stack Developer</p>
+      <p class="stack">React, Node.js and AI integrations (MCP)</p>
+      <p class="avail">Open to roles and freelance projects</p>
+    </div>
+  </body>
+</html>

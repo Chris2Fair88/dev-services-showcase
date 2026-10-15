@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Redirects an old-style hash route (for example #/services) to the real
+         path (for example services/), derived from the current pathname so it
+         works under any base path. Runs before React; does nothing for a plain
+         in-page anchor hash like #contact, since those never start with #/. -->
+    <script>
+      (function () {
+        var m = /^#\/(.*)$/.exec(location.hash);
+        if (!m || !m[1]) return;
+        var base = location.pathname.replace(/[^/]*$/, '');
+        location.replace(base + m[1].replace(/\/?$/, '/'));
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!--app-head-->
+  </head>
+  <body>
+    <div id="root"><!--app-html--></div>
+    <script type="module" src="/src/entry-client.jsx"></script>
+  </body>
+</html>
