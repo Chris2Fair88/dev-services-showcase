@@ -55,7 +55,7 @@ export function buildJsonLd() {
     sameAs: [
       'https://www.linkedin.com/in/chris-fairbanks-20a103345',
       'https://github.com/Chris2Fair88',
-      'https://www.fiverr.com/s/99Vz5qe',
+      'https://www.fiverr.com/chrisf919',
     ],
   }
   const website = {
